@@ -11,6 +11,8 @@ import jakarta.annotation.PostConstruct;
 @SpringBootApplication
 public class MedheadApplicationAPI {
 
+
+	
 	@PostConstruct
 	public void init() {
 		LoggerTools.INSTANCE.init("MedheadApplicationAPI");
@@ -20,5 +22,7 @@ public class MedheadApplicationAPI {
 	public static void main(String[] args) {
 		SpringApplication.run(MedheadApplicationAPI.class, args);
 	}
+	
+
 
 }

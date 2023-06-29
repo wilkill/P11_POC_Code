@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.medhead.medhead.backend.model.Hospital;
 import com.medhead.medhead.backend.service.HospitalService;
+import com.medhead.medhead.backend.service.SpecializationGroupService;
+import com.medhead.medhead.backend.service.SpecializationService;
 
 
 @RestController
@@ -22,11 +24,11 @@ public class DatabaseController {
     @Autowired
     private HospitalService hospitalService;
     
-//    @Autowired
-//    private SpecializationGroupService specializationGroupService;
-//    
-//    @Autowired
-//    private SpecializationService specializationService;
+    @Autowired
+    private SpecializationGroupService specializationGroupService;
+    
+    @Autowired
+    private SpecializationService specializationService;
     
 
     /**

@@ -1,6 +1,5 @@
 package com.medhead.medhead.backend.model;
 
-import jakarta.persistence.Access;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
