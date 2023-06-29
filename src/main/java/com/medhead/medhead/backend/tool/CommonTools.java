@@ -18,4 +18,6 @@ public enum CommonTools {
 	public String getClassName(Class<?> _class) {
 		return _class.getName().substring(_class.getName().lastIndexOf(".") + 1);
 	}
+	
+	
 }
