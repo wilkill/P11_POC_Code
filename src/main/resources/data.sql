@@ -27,7 +27,11 @@ CREATE TABLE specialization (
 );  
 
 INSERT INTO hospital(name,beds_available,specializations,longitude,latitude) VALUES
-  ('Clinique Sainte-Clotilde',22,ARRAY[45],55.478886, -20.902539);
+  ('Clinique Sainte-Clotilde',22,ARRAY[45],55.478886, -20.902539),
+  ('C.H.U NORD BELLEPIERRE',582,ARRAY[45],55.444959, -20.890919),
+  ('C.H.U SUD ST PIERRE',582,ARRAY[45],55.493370, -21.346510),
+  ('C.H.O ST PAUL',582,ARRAY[45],55.299531, -20.977047),
+  ('GHER ST BENOIT',22,ARRAY[45],55.710549, -21.058580);
 
 INSERT INTO specialization_group (id,name) VALUES
   (1,'Anesthésie'),

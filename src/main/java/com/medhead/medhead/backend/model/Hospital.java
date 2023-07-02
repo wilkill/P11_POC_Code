@@ -1,5 +1,6 @@
 package com.medhead.medhead.backend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,6 +25,8 @@ public class Hospital {
 	
 	private double longitude;
 	
+	@Column(name = "beds_available")
+	private int bedsAvailable;
 	
 	
 	public Long getId() {
@@ -64,6 +67,14 @@ public class Hospital {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public int getBedsAvailable() {
+		return bedsAvailable;
+	}
+
+	public void setBedsAvailable(int bedsAvailable) {
+		this.bedsAvailable = bedsAvailable;
 	}
 	
 	

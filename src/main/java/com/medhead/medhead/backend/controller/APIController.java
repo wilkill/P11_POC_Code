@@ -52,10 +52,17 @@ public class APIController {
 			Double distance = GPSTools.INSTANCE.distanceTo(requestParam.getLatitude(), requestParam.getLongitude(), hospital.getLatitude(), hospital.getLongitude());
 			lsrch.add(new ResultSearch(hospital, distance));
 		}
+		int occurence = 0;
 		if(lsrch.size()>0) {
 			Collections.sort(lsrch);
-			LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital resust["+lsrch.get(0).getHospital().toString()+"]");
-			return lsrch.get(0).getHospital();
+			
+			if(lsrch.get(occurence).getHospital().getBedsAvailable()>0) {
+				LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital resust["+lsrch.get(occurence).getHospital().toString()+"] With Bed Available ");
+				return lsrch.get(occurence).getHospital();
+			}else {
+				occurence++;
+			}
+				
 		}
 		
 		return null;
