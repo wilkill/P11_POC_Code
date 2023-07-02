@@ -16,6 +16,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
@@ -44,7 +45,10 @@ deploy-job:      # This job runs in the deploy stage.
   variables:
     DOCKER_HOST: tcp://docker:2375
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+    - docker info
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  only:
+    - master
   script:
     - docker build -t $CI_REGISTRY_IMAGE:latest .
     - docker push $CI_REGISTRY_IMAGE:latest
