@@ -8,7 +8,7 @@ RUN mkdir /opt/app
 COPY target/medhead-0.0.1-SNAPSHOT.jar /opt/app/app.jar
 
 # Expose le port sur lequel l'application Spring Boot écoute
-EXPOSE 8080
+EXPOSE 9000
 
 # Démarre l'application lorsque le conteneur est lancé
 CMD ["java", "-jar", "/opt/app/app.jar"]
