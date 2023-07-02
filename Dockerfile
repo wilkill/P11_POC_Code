@@ -8,7 +8,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Copie le fichier JAR de l'application dans le conteneur
-COPY target/medhead-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/medhead-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose le port sur lequel l'application Spring Boot écoute
 EXPOSE 9000
