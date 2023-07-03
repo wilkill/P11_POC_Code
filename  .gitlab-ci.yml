@@ -26,22 +26,21 @@ build:       # This job runs in the build stage, which runs first.
   stage: build
   image: maven:3.8.4-openjdk-17
   script:
-    - mvn clean package
-  artifacts:
-    paths:
-      - target/*.jar
+    - echo "Maven compile started"
+    - mvn clean compile
+
 
 test:
   stage: test
   image: maven:3.8.4-openjdk-17
   script:
-    - mvn test
+    - mvn clean test
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
   image: maven:3.8.4-openjdk-17
   script:
-    - mvn clean package
+    - mvn package -B
   artifacts:
     paths:
       - target/*.jar
