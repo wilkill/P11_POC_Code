@@ -39,7 +39,7 @@ test:
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  image: docker:latest
+  image: maven:3.8.4-openjdk-17
   services:
     - docker:dind
   variables:
