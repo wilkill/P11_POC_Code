@@ -16,6 +16,7 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
@@ -25,23 +26,22 @@ build:       # This job runs in the build stage, which runs first.
   stage: build
   image: maven:3.8.4-openjdk-17
   script:
-    - mvn clean package
+    - echo "Maven compile started"
+    - mvn clean compile
+
 
 test:
   stage: test
   image: maven:3.8.4-openjdk-17
   script:
-    - mvn test
+    - mvn clean test
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  image: docker:latest
-  services:
-    - docker:dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375
-  before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+  image: maven:3.8.4-openjdk-17
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - mvn package -B
+  artifacts:
+    paths:
+      - target/*.jar
+
