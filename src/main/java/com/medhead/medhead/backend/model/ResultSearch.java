@@ -33,6 +33,7 @@ public class ResultSearch implements Comparable<ResultSearch>{
 		this.distance = distance;
 	}
 
+	@SuppressWarnings("removal")
 	@Override
 	public int compareTo(ResultSearch o) {
 		return new Double(distance).compareTo(o.distance);

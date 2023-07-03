@@ -57,7 +57,7 @@ public class APIController {
 			Collections.sort(lsrch);
 			
 			if(lsrch.get(occurence).getHospital().getBedsAvailable()>0) {
-				LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital resust["+lsrch.get(occurence).getHospital().toString()+"] With Bed Available ");
+				LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital result["+lsrch.get(occurence).getHospital().toString()+"] With Bed Available ");
 				return lsrch.get(occurence).getHospital();
 			}else {
 				occurence++;
