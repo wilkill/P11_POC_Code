@@ -30,15 +30,10 @@ public class APIController {
     @Autowired
     private HospitalService hospitalService;
     
-    @Autowired
-    private SpecializationGroupService specializationGroupService;
-    
-    @Autowired
-    private SpecializationService specializationService;
     
     
     /**
-	 * Create - Add a new hospital
+	 * getClosestHospitalByGpsPoint search by gps point distance
 	 * @param hospital An object hospital
 	 * @return The hospital object saved
 	 */
@@ -53,7 +48,7 @@ public class APIController {
 			Double distance = GPSTools.INSTANCE.distanceTo(requestParam.getLatitude(), requestParam.getLongitude(), hospital.getLatitude(), hospital.getLongitude());
 			lsrch.add(new ResultSearch(hospital, distance));
 		}
-		int occurence = 0;
+
 		if(lsrch.size()>0) {
 			Collections.sort(lsrch);
 			LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalByGpsPoint result["+lsrch.get(0).getHospital().toString()+"]");

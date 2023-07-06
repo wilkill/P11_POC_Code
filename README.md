@@ -1,14 +1,15 @@
-<<<<<<< HEAD
-# P11_POC_Code
 
-=======
 # P11_POC_Code backend
 
 Ceci est le code du backend de la POC pour MedHead 
 
 #Prérequis 
-JAVA jdk 17 minimun
-Maven 3.9.1 minimun
+
+| Type | Version minimun|
+|-----:|-----------|
+|  JAVA| jdk 17  |
+| Maven| 3.9.1    |
+
 
 # Compilation et test du code
 
@@ -18,4 +19,4 @@ Maven 3.9.1 minimun
 # Workflow de developpement
 
 # Pipeline Integration continu / developpement continu (CI/CD)
->>>>>>> refs/heads/release/Add_google_api
+
