@@ -64,7 +64,7 @@ INSERT INTO specialization_group (id,name) VALUES
 (14,3,'Prosthodontie'),
 (15,3,'Dentisterie restauratrice'),
 (16,3,'Dentisterie de soins spéciaux'),
-(17,4,'Médecine d' 	'urgence'),
+(17,4,'Médecine d''urgence'),
 (18,5,'Médecine interne de soins aigus'),
 (19,5,'Allergie'),
 (20,5,'Médecine audiovestibulaire'),

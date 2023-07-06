@@ -77,6 +77,18 @@ public class Hospital {
 		this.bedsAvailable = bedsAvailable;
 	}
 	
-	
+
+	public boolean containSpecialisationId(Integer searchId) {
+		
+		if(this.getSpecializations() != null) {
+			for(Integer i : this.getSpecializations()) {
+				if(i == searchId)
+					return true;
+			}
+			
+		}
+		
+		return false;
+	}
 	
 }

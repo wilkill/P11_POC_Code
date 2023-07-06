@@ -42,9 +42,10 @@ public class APIController {
 	 * @param hospital An object hospital
 	 * @return The hospital object saved
 	 */
-	@PostMapping("/api/getclosesthospital")
-	public Hospital getClosestHospital(@RequestBody RequestParam requestParam) {
-		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital id["+requestParam.toString()+"]");
+	@PostMapping("/api/getclosesthospitalbygpspoint")
+	public Hospital getClosestHospitalByGpsPoint(@RequestBody RequestParam requestParam) {
+		long startTime = System.currentTimeMillis();
+		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalByGpsPoint id["+requestParam.toString()+"]");
 		List<ResultSearch> lsrch = new ArrayList<ResultSearch>();
 		Iterable<Hospital> listHospital = hospitalService.getHospitals();
 		
@@ -55,17 +56,40 @@ public class APIController {
 		int occurence = 0;
 		if(lsrch.size()>0) {
 			Collections.sort(lsrch);
-			
-			if(lsrch.get(occurence).getHospital().getBedsAvailable()>0) {
-				LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospital result["+lsrch.get(occurence).getHospital().toString()+"] With Bed Available ");
-				return lsrch.get(occurence).getHospital();
-			}else {
-				occurence++;
-			}
-				
+			LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalByGpsPoint result["+lsrch.get(0).getHospital().toString()+"]");
+			long endTime = System.currentTimeMillis();
+			long duration = (endTime - startTime);
+			LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalByGpsPoint duration in seconds ["+duration/1000.0+"] à [" +lsrch.get(0).getDistance()/1000.0 + "] km");
+			return lsrch.get(0).getHospital();
 		}
 		
 		return null;
+	}
+	
+	/**
+	 * get closest hospital by api google street
+	 * @param hospital An object hospital
+	 * @return The hospital object saved
+	 */
+	@PostMapping("/api/getclosesthospitalbygoogleapi")
+	public Hospital getClosestHospitalGoogleAPI(@RequestBody RequestParam requestParam) {
+		long startTime = System.currentTimeMillis();
+		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalGoogleAPI id["+requestParam.toString()+"]");
+		List<ResultSearch> lsrch = new ArrayList<ResultSearch>();
+		Iterable<Hospital> listHospital = hospitalService.getHospitals();
+		
+		List<Hospital> listFinalHospital = new ArrayList<Hospital>();
+		
+		for(Hospital hospital : listHospital) {
+			if(hospital.containSpecialisationId(requestParam.getSpecialization()) && hospital.getBedsAvailable()>0)
+				listFinalHospital.add(hospital);
+		}
+		Hospital resultHospital = GPSTools.INSTANCE.bestHospitalGoogleApi(requestParam.getLatitude(), requestParam.getLongitude(), listFinalHospital);
+		
+		long endTime = System.currentTimeMillis();
+		long duration = (endTime - startTime);
+		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalGoogleAPI duration in seconds ["+duration/1000.0+"]");
+		return resultHospital;
 	}
 
 }
