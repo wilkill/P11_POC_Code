@@ -31,5 +31,5 @@ Ceci est le code du backend de la POC pour MedHead
 1- Utilisation du CI/CD avec GitLab
 2- A Chaque Version commit et pusher sur le repository gitlab, le process d'integration et de distribution automatique est effectué
 3- Dans son process, il execute les différents stage : build,test et deploy tout cela dans une instance docker
-4- Voir le document ".gitlab-ci.yml" qui liste les actions et commande pour chaque stage (build,test et deploy).
+4- Voir le document "gitlab-ci.yml" qui liste les actions et commande pour chaque stage (build,test et deploy).
 
