@@ -1,5 +1,7 @@
 package com.medhead.medhead.backend.model;
 
+import java.util.Arrays;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -90,5 +92,36 @@ public class Hospital {
 		
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Hospital [");
+		if (id != null) {
+			builder.append("id=");
+			builder.append(id);
+			builder.append(", ");
+		}
+		if (name != null) {
+			builder.append("name=");
+			builder.append(name);
+			builder.append(", ");
+		}
+		if (specializations != null) {
+			builder.append("specializations=");
+			builder.append(Arrays.toString(specializations));
+			builder.append(", ");
+		}
+		builder.append("latitude=");
+		builder.append(latitude);
+		builder.append(", longitude=");
+		builder.append(longitude);
+		builder.append(", bedsAvailable=");
+		builder.append(bedsAvailable);
+		builder.append("]");
+		return builder.toString();
+	}
+	
+	
 	
 }

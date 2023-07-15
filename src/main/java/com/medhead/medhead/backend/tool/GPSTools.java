@@ -119,7 +119,7 @@ public enum GPSTools {
                 DestinationWrapper closestDestination = destinations[currentIdx];
                
                 
-                LoggerTools.INSTANCE.logInfo(_className, "L'hopital le plus proche est le  : [ " + closestDestination.getHostipal() + "] à [" + currentDistance/1000.0 + "] km");
+                LoggerTools.INSTANCE.logInfo(_className, "L'hopital le plus proche est le  : [ " + closestDestination.getHostipal().toString() + "] à [" + currentDistance/1000.0 + "] km");
                 return closestDestination.getHostipal();
             }
         } catch (Exception e) {

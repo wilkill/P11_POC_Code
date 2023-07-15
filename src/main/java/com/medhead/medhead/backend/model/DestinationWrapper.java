@@ -43,6 +43,25 @@ public class DestinationWrapper {
 	public void setLatLng(LatLng latLng) {
 		this.latLng = latLng;
 	}
+
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("DestinationWrapper [");
+		if (hostipal != null) {
+			builder.append("hostipal=");
+			builder.append(hostipal);
+			builder.append(", ");
+		}
+		if (latLng != null) {
+			builder.append("latLng=");
+			builder.append(latLng);
+		}
+		builder.append("]");
+		return builder.toString();
+	}
 	
 	
 	
