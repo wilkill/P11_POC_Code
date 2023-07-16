@@ -42,7 +42,7 @@ public class APIController {
 		long startTime = System.currentTimeMillis();
 		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalByGpsPoint id["+requestParam.toString()+"]");
 		List<ResultSearch> lsrch = new ArrayList<ResultSearch>();
-		Iterable<Hospital> listHospital = hospitalService.getHospitals();
+		List<Hospital> listHospital = hospitalService.getHospitalsBySpecialisationAndBedAvailable(requestParam.getSpecialization());
 		
 		for(Hospital hospital : listHospital) {
 			Double distance = GPSTools.INSTANCE.distanceTo(requestParam.getLatitude(), requestParam.getLongitude(), hospital.getLatitude(), hospital.getLongitude());
