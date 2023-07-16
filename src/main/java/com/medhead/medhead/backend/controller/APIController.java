@@ -75,22 +75,12 @@ public class APIController {
 		long startTime = System.currentTimeMillis();
 		LoggerTools.INSTANCE.logInfo(_className, "Call getClosestHospitalGoogleAPI id["+requestParam.toString()+"]");
 		
-		// Get All Hospital
-		Iterable<Hospital> listHospital = hospitalService.getHospitals();
-		
 		// List for final Hospital with bed
-		List<Hospital> listFinalHospital = new ArrayList<Hospital>();
+		List<Hospital> listFinalHospital = hospitalService.getHospitalsBySpecialisationAndBedAvailable(requestParam.getSpecialization());
 		
-		
-		// fill the final list hospital
-		for(Hospital hospital : listHospital) {
-			if(hospital.containSpecialisationId(requestParam.getSpecialization()) && hospital.getBedsAvailable()>0)
-				listFinalHospital.add(hospital);
-		}
 		if(!listFinalHospital.isEmpty())
 			resultHospital = GPSTools.INSTANCE.bestHospitalGoogleApi(requestParam.getLatitude(), requestParam.getLongitude(), listFinalHospital);
-		
-		
+
 		
 		// Start End of this method
 		long endTime = System.currentTimeMillis();

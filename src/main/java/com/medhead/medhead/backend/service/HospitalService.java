@@ -2,6 +2,7 @@ package com.medhead.medhead.backend.service;
 
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,13 @@ public class HospitalService {
     	Hospital savedHospital = hospitalRepository.save(hospital);
     	LoggerTools.INSTANCE.logInfo(_className, "Call saveHospital id["+savedHospital.getId()+"]");
         return savedHospital;
+    }
+    
+    
+    public List<Hospital> getHospitalsBySpecialisationAndBedAvailable(Integer specialisation) {
+    	List<Hospital> result = hospitalRepository.getHospitalsBySpecialisationAndBedAvailable(specialisation);
+    	LoggerTools.INSTANCE.logInfo(_className, "Call getHospitals by specialisation and bed availabe");
+        return result;
     }
 
 }
