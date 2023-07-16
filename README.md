@@ -5,11 +5,11 @@ Description : Ceci est le code du backend de la POC du système d'intervention d
 
 # Prérequis 
 
-| Type | Version minimun|
-|-----:|-----------|
-|  JAVA| jdk 17    |
-| Maven| 3.9.1     |
-| Eclipse|4.28.0   |
+| Type | Version minimun|Commentaire|
+|-----:|-----------|----|
+|  JAVA| jdk 17    |running|
+| Maven| 3.9.1     |compile,running|
+| Eclipse|4.28.0   |developpement|
 
 # Compilation et test du code
 
