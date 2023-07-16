@@ -20,9 +20,8 @@ Description : Ceci est le code du backend de la POC du système d'intervention d
 5 - Pour executer l'application sur un autre poste, il suffit d'executer le jar générer dans le dossier target : "medhead-0.0.1-SNAPSHOT.jar" avec la commande : java -jar medhead-0.0.1-SNAPSHOT.jar\
 6 - Le serveur sera disponible sur le l'ip du serveur port 9000 : soit en local : [http://localthost](http://127.0.0.1:9000/) ou remplacer localhost par l'ip de la machine\
 7 - Chaque api est disponible sur l'url avec le suffix /api/\
-8 - Nous avons deux méthodes :\
-  - Via Google Api 
-  - Via une distance lineaire entre 2 points GPS
+8 - Nous utilisons l'api de google pour le calcule de trajet
+
 
 
 # Workflow de developpement
@@ -33,9 +32,8 @@ Description : Ceci est le code du backend de la POC du système d'intervention d
 4 - Des Branches spécialisées pour chaque feature ou release à publier
 
 # Methode de test unitaire et de stress de la solution
-1 - Junit pour tester le lancement du context de spring boot \
-2 - Junit pour tester l'utilisation de le base de données
-3 - Junit pour tester l'utilisation de l'API Google API
+1 - Junit pour tester le lancement du context de spring boot , base de données et lancement API de Google : Résultat disponible ici -> ![Surefire-report](https://github.com/wilkill/P11_POC_Code/tree/main/doc/Test_Application_Report/surefire-reports/)\
+2 - JMeter pour tester la montée en charge avec un test de 800 requêtes en une secondes : Résultat disponible ici -> ![Surefire-report](https://github.com/wilkill/P11_POC_Code/tree/main/doc/Test_Application_Report/JMeter/)
 
 # Pipeline Integration continue / Distribution continue (CI/CD)
 1 - Utilisation du CI/CD avec GitLab\
