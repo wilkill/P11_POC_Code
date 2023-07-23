@@ -118,7 +118,9 @@ public enum GPSTools {
                 
                 DestinationWrapper closestDestination = destinations[currentIdx];
                
+                // to do -> reservation de lits 
                 
+                // Un log affiche aurjourd'hui l'hopital trouvé.
                 LoggerTools.INSTANCE.logInfo(_className, "L'hopital le plus proche est le  : [ " + closestDestination.getHostipal().toString() + "] à [" + currentDistance/1000.0 + "] km");
                 return closestDestination.getHostipal();
             }
