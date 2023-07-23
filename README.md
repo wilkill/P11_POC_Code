@@ -8,7 +8,7 @@ Description : Ceci est le code du backend de la POC du système d'intervention d
 | Type | Version minimun|Commentaire|
 |-----:|-----------|----|
 |  JAVA| jdk 17    |running|
-| Maven| 3.9.1     |compile,running|
+| Maven| 3.8.4     |compile,running|
 | Eclipse|4.28.0   |developpement|
 
 # Compilation et test du code
